@@ -71,7 +71,7 @@ app.get("/secrets", async (req, res) => {
       if (secret) {
         res.render("secrets.ejs", { secret: secret });
       } else {
-        res.render("secrets.ejs", { secret: "Jack Bauer is my hero." });
+        res.render("secrets.ejs", { secret: "I've learned how to crochet, and I enjoy it." });
       }
     } catch (err) {
       console.log(err);
