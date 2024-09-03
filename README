@@ -1,53 +1,58 @@
-Secret Sharing App
-Overview
+Certainly! Here’s the complete README file in one continuous block for easy copying and pasting:
+
+```markdown
+# Secret Sharing App
+
+## Overview
 
 The Secret Sharing App is a web application that allows users to securely log in using either their Google account or their email and password. Once authenticated, users can share a secret that will be displayed on the app. The displayed secret is replaced by new secrets shared by other users, creating a dynamic and interactive experience.
-Technologies Used
 
-    Backend: Node.js with Express.js
-    Authentication: Passport.js with Google OAuth2 and local strategies
-    Database: PostgreSQL
-    Password Hashing: Bcrypt
-    Templating: EJS
-    Styling: CSS
+### Technologies Used
 
-Features
+- **Backend**: Node.js with Express.js
+- **Authentication**: Passport.js with Google OAuth2 and local strategies
+- **Database**: PostgreSQL
+- **Password Hashing**: Bcrypt
+- **Templating**: EJS
+- **Styling**: CSS
 
-    Google Authentication: Log in with a Google account.
-    Email Registration and Login: Register and log in using email and password.
-    Secret Sharing: Share secrets that are displayed until replaced by new ones.
-    Secure Storage: Passwords are hashed and sessions are managed securely.
+### Features
 
-Prerequisites
+- **Google Authentication**: Log in with a Google account.
+- **Email Registration and Login**: Register and log in using email and password.
+- **Secret Sharing**: Share secrets that are displayed until replaced by new ones.
+- **Secure Storage**: Passwords are hashed and sessions are managed securely.
+
+## Prerequisites
 
 Ensure the following software is installed:
 
-    Node.js: JavaScript runtime environment.
-    PostgreSQL: Relational database system.
-    Git: Version control system.
+- **Node.js**: JavaScript runtime environment.
+- **PostgreSQL**: Relational database system.
+- **Git**: Version control system.
 
-Setup and Installation
-1. Clone the Repository
+## Setup and Installation
 
-bash
+### 1. Clone the Repository
 
+```bash
 git clone https://github.com/LunnS2/Secrets-app.git
 cd Secrets-app
+```
 
-2. Install Dependencies
+### 2. Install Dependencies
 
 Install the required npm packages:
 
-bash
-
+```bash
 npm install
+```
 
-3. Configure Environment Variables
+### 3. Configure Environment Variables
 
-Create a .env file in the root directory of the project and add the following environment variables:
+Create a `.env` file in the root directory of the project and add the following environment variables:
 
-env
-
+```env
 GOOGLE_CLIENT_ID=your-google-client-id
 GOOGLE_CLIENT_SECRET=your-google-client-secret
 SESSION_SECRET="TOPSECRETWORD"
@@ -56,53 +61,58 @@ PG_HOST=localhost
 PG_DATABASE=your-database-name
 PG_PASSWORD=your-database-password
 PG_PORT=5432
+```
 
-Replace your-google-client-id, your-google-client-secret, your-database-name, and your-database-password with your actual credentials.
-4. Set Up PostgreSQL
+Replace `your-google-client-id`, `your-google-client-secret`, `your-database-name`, and `your-database-password` with your actual credentials.
 
-Connect to PostgreSQL and create the required users table:
+### 4. Set Up PostgreSQL
 
-sql
+Connect to PostgreSQL and create the required `users` table:
 
+```sql
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     email VARCHAR(100) NOT NULL UNIQUE,
     password VARCHAR(100),
     secret TEXT
 );
+```
 
-5. Add Static Files
+### 5. Add Static Files
 
-Ensure your CSS and other static assets are located in the public directory. The express.static middleware is set up to serve these static files.
-6. Run the Application
+Ensure your CSS and other static assets are located in the `public` directory. The `express.static` middleware is set up to serve these static files.
+
+### 6. Run the Application
 
 Start the server:
 
-bash
-
+```bash
 npm start
+```
 
-The application will be available at http://localhost:3000.
-Application Routes
+The application will be available at `http://localhost:3000`.
 
-    GET /: Renders the home page (home.ejs).
-    GET /login: Renders the login page (login.ejs).
-    GET /register: Renders the registration page (register.ejs).
-    GET /logout: Logs out the user and redirects to the home page.
-    GET /secrets: Displays the current secret for authenticated users (secrets.ejs).
-    GET /submit: Renders the secret submission page for authenticated users (submit.ejs).
-    GET /auth/google: Initiates Google authentication.
-    GET /auth/google/secrets: Handles Google authentication callback and redirects to the secrets page.
-    POST /login: Handles login with email and password.
-    POST /register: Handles user registration with email and password.
-    POST /submit: Handles secret submission and updates the displayed secret.
+## Application Routes
 
-Security Considerations
+- **`GET /`**: Renders the home page (`home.ejs`).
+- **`GET /login`**: Renders the login page (`login.ejs`).
+- **`GET /register`**: Renders the registration page (`register.ejs`).
+- **`GET /logout`**: Logs out the user and redirects to the home page.
+- **`GET /secrets`**: Displays the current secret for authenticated users (`secrets.ejs`).
+- **`GET /submit`**: Renders the secret submission page for authenticated users (`submit.ejs`).
+- **`GET /auth/google`**: Initiates Google authentication.
+- **`GET /auth/google/secrets`**: Handles Google authentication callback and redirects to the secrets page.
+- **`POST /login`**: Handles login with email and password.
+- **`POST /register`**: Handles user registration with email and password.
+- **`POST /submit`**: Handles secret submission and updates the displayed secret.
 
-    Password Hashing: Passwords are hashed with bcrypt before storage to ensure security.
-    Session Management: The session secret (SESSION_SECRET) is used to secure user sessions.
-    Environment Variables: Sensitive data, such as database credentials and API keys, are stored in .env files to prevent exposure in the codebase.
+## Security Considerations
 
-Styling
+- **Password Hashing**: Passwords are hashed with bcrypt before storage to ensure security.
+- **Session Management**: The session secret (`SESSION_SECRET`) is used to secure user sessions.
+- **Environment Variables**: Sensitive data, such as database credentials and API keys, are stored in `.env` files to prevent exposure in the codebase.
 
-The application’s styles are defined in CSS files located in the public directory. Customize these styles to modify the appearance of the application.
+## Styling
+
+The application’s styles are defined in CSS files located in the `public` directory. Customize these styles to modify the appearance of the application.
+```
